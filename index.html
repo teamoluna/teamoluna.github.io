@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+            html,
+            body{
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                background-image: url("https://www.awarenessdays.com/wp-content/uploads/2022/10/iStock-1148907363-1.jpg");
+                font-family: sans-serif;
+                background-repeat: no-repeat;
+                background-size: 100% 150%;
+                overflow: hidden;
+            }
+
+            :root{
+                --pointerX: 50%;
+                --pointerY: 20%;
+                --showSize: 12%;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at var(--pointerX) var(--pointerY), rgba(0,0,0,0), rgba(255,255,255,0.05) 7%, rgba(0,0,0,1) var(--showSize));
+            }
+
+            .container {
+                /* background-image: url("https://www.awarenessdays.com/wp-content/uploads/2022/10/iStock-1148907363-1.jpg"); */
+                background-repeat: no-repeat;
+                background-size: 100% 150%;
+                height: 100%;
+                width: 100%;
+            }
+
+            .heart {
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+                display: none;
+                position: relative;
+                z-index: 10;
+            }
+
+            .love-button {
+                padding: 0.5rem;
+                background-color: lightskyblue;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            .div-to-center {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .heart-te-amo {
+                position: absolute;
+                color: black;
+            }
+
+
+            #thankslovepik {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="container" id="container">
+            <button class="love-button" id="iLoveYouButton">Te amo Luna</button>
+            <div class="div-to-center">
+                <img class="heart" src="heart2.png" id="heart"/>
+                <h1 class="heart-te-amo" id="heartTeAmo">Te amo UwU</h1>
+            </div>
+            
+        </div>
+
+        <a id="thankslovepik" href="https://lovepik.com/images/png-593519.html">Cut Free Png vectors by Lovepik.com</a>
+        <script>
+            window.addEventListener("mousemove", flashLightCursor);
+            function flashLightCursor(e){
+                document.documentElement.style.setProperty("--pointerX", e.clientX + "px");
+                document.documentElement.style.setProperty("--pointerY", e.clientY + "px");
+            }
+
+            window.addEventListener("mouseup", handleMouseUp);
+
+            function handleMouseUp(e){
+                if (e.clientX <= 80 && e.clientY <=40){
+                    document.documentElement.style.setProperty("--showSize", "100%");
+
+                    let iloveYouButton = document.getElementById("iLoveYouButton").style.display = "none";
+                    let heart = document.getElementById("heart");
+                    let heartTeAmo = document.getElementById("heartTeAmo").style.color = "red";
+                    heart.style.display = "inline";
+                    document.body.style.backgroundImage = `url("luna.png")`;
+                    document.body.style.backgroundSize = `120% 150%`;
+
+                }
+                
+            }
+        </script>
+    </body>
+</html>
